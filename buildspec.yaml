@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    S3_BUCKET: "hackathon-team-3-companion.org"
+    S3_BUCKET: "companion-app-angular"
 phases:
   install:
     runtime-versions:
