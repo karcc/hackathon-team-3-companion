@@ -9,12 +9,12 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
+      - cd companion-app
       - npm install
       - npm install -g @angular/cli
   build:
     commands:
       - echo Build started on `date`
-      - cd companion-app
       - ng build --prod --aot
   post_build:
      commands:
