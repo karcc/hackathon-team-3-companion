@@ -22,8 +22,8 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   @ViewChild('timer', undefined) timerElm: ElementRef;
 
   decriment: number  = 0;
-  const warnningTime: number  = 65;
-  const criticalTime: number  = 30;
+  warnningTime: number  = 65;
+  criticalTime: number  = 30;
   countdownTime: number = 60 * 1;  // 60 for secounds times whatever for minutes...
 
   constructor(private userService: UserInfoService,
