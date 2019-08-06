@@ -9,12 +9,12 @@ export class LoginService {
 
   constructor(private http: HttpClient){}
 
-  httpOptions = {
+/*  httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin' : '*',
       'content-type' : 'text/plain'
     })
-  };
+  };*/
 
 
   register(id: string, user: UserInfo) {
@@ -26,7 +26,7 @@ export class LoginService {
   }
 
   postUserInfo(user: UserInfo){
-    return this.http.post<UserInfo>(this.transactionUrl, user, this.httpOptions).subscribe((res) => {
+    return this.http.post<UserInfo>(this.transactionUrl, user).subscribe((res) => {
       console.log(res);
     });
   }

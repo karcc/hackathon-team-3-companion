@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {UserInfo} from "../entities/UserInfo";
+import {HighScores} from "../entities/HighScores";
+import {LeaderboardService} from "./services/leaderboard.service";
 
 @Component({
   selector: 'app-leaderboard',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaderboardComponent implements OnInit {
 
-  constructor() { }
+  highscores: HighScores;
+
+  constructor(private leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
+    this.leaderboardService.getHighScores();
   }
+
+
+
 
 }

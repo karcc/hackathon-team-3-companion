@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {LoginService} from "./login/services/login.service";
 import {QuestionService} from "./services/question-service";
 import {UserInfoService} from "./services/user-info-service";
+import {LeaderboardService} from "./leaderboard/services/leaderboard.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {UserInfoService} from "./services/user-info-service";
   providers: [
     LoginService,
     UserInfoService,
-    QuestionService
+    QuestionService,
+    LeaderboardService
   ],
   bootstrap: [AppComponent]
 })
