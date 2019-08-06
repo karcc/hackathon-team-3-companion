@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Slf4j
@@ -33,6 +35,13 @@ public class HuntController {
         log.info("Creating a new user and game.");
         String sessionId = RandomStringUtils.randomAlphanumeric(12);
         userInfo.setSessionId(sessionId);
+        userInfo.setEntryTime(LocalDateTime.now());
+        userInfo.setQuestionCount(0);
+        userInfo.setQuestionSetId(1);
+        userInfo.setCurrentQuestionId(0L);
+        userInfo.setGroupId(0);
+        userInfo.setScore(0);
+
         userService.saveUser(userInfo);
 
         return new ResponseEntity<>(userInfo, HttpStatus.OK);
@@ -41,24 +50,29 @@ public class HuntController {
 
     @GetMapping(value="/question/{sessionId}")
     public ResponseEntity<Questions> getQuestion(@PathVariable String sessionId) {
-        log.info("Getting the question for session id: " + sessionId);
-        UserInfo player = userService.findBySessionId(sessionId);
-
-        Questions lastQuestion = questionService.findById(player.getCurrentQuestionId()).orElse(null);
-
-        return new ResponseEntity<>(lastQuestion, HttpStatus.OK);
-    }
-
-    @GetMapping(value="/answer/{sessionId}/{answer}")
-    public ResponseEntity<Questions> finishQuestion(@PathVariable String sessionId, @PathVariable String answer) {
-        log.info("Checking the answer for sessionId: " + sessionId + " and answer: " + answer);
+        log.info("Getting a new question for session id: " + sessionId);
         UserInfo player = userService.findBySessionId(sessionId);
 
         Long newQuestionId = player.getCurrentQuestionId() + 1;
 
         Questions newQuestion = questionService.findByIdAndQuestionSetId(newQuestionId, player.getQuestionSetId()).orElse(null);
+        player.setCurrentQuestionId(newQuestion.getId());
+        player.setQuestionStartTime(LocalDateTime.now());
+        player.setQuestionCount(player.getQuestionCount()+1);
+        player.setQuestionSetId(newQuestion.getQuestionSetId());
+        player.setCorrect(false);
+        userService.saveUser(player);
 
         return new ResponseEntity<>(newQuestion, HttpStatus.OK);
+    }
+
+    @GetMapping(value="/answer/{sessionId}/{answer}")
+    public ResponseEntity<UserInfo> finishQuestion(@PathVariable String sessionId, @PathVariable String answer) {
+        log.info("Checking the answer for sessionId: " + sessionId + " and answer: " + answer);
+        UserInfo player = userService.findBySessionId(sessionId);
+        player = questionService.checkAnswer(player, answer);
+        userService.saveUser(player);
+        return new ResponseEntity<>(player, HttpStatus.OK);
     }
 
     @GetMapping(value="/scores/{sessionId}")
@@ -72,6 +86,14 @@ public class HuntController {
         } else {
             highScores = highScoreService.findAll();
         }
+
+        return new ResponseEntity<>(highScores, HttpStatus.OK);
+    }
+
+    @GetMapping(value="/scores")
+    public ResponseEntity<List<HighScores>> pullAllHighScores(@PathVariable String sessionId) {
+        log.info("Returning list of high scores...");
+        List<HighScores> highScores = highScoreService.findAll();;
 
         return new ResponseEntity<>(highScores, HttpStatus.OK);
     }

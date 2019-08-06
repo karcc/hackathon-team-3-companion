@@ -21,11 +21,17 @@ public class UserInfo {
     @Column(name="score")
     private int score;
 
+    @Column(name="correct")
+    private boolean correct;
+
     @Column(name="current_question")
     private Long currentQuestionId;
 
     @Column(name="question_set_id")
     private int questionSetId;
+
+    @Column(name="question_start_time")
+    private LocalDateTime questionStartTime;
 
     @Column(name="session_id")
     private String sessionId;
@@ -106,5 +112,21 @@ public class UserInfo {
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
+    }
+
+    public LocalDateTime getQuestionStartTime() {
+        return questionStartTime;
+    }
+
+    public void setQuestionStartTime(LocalDateTime questionStartTime) {
+        this.questionStartTime = questionStartTime;
+    }
+
+    public boolean isCorrect() {
+        return correct;
+    }
+
+    public void setCorrect(boolean correct) {
+        this.correct = correct;
     }
 }
