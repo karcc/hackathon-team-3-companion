@@ -18,10 +18,9 @@
         <div class="questionChoices">
             <div *ngFor="let choice of question.choices" class="questionChoice">{{choice}}</div>
         </div>
-        <button type="button" class="btn btn-success rightAlign" name="Send Answer">Send Answer</button>
         <div class="questionFooter">
-            <button type="button" class="btn btn-danger leftAlign" (click)="passQuestion()">PASS</button>
-
+          <button type="button" class="btn btn-danger leftAlign" style="width:50% !important;" (click)="passQuestion()">PASS</button>
+          <button type="button" class="btn btn-success rightAlign" style="width:50% !important;" name="Send Answer">Send Answer</button>
         </div>
     </div>
 </div>
