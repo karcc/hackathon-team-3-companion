@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {LoginService} from "./services/login.service";
+import {FormGroup} from "@angular/forms";
+import {UserInfo} from "../entities/UserInfo";
 
 @Component({
   selector: 'companion-login',
@@ -8,13 +11,18 @@ import {Component, OnInit} from '@angular/core';
 
 export class LoginComponent implements OnInit {
 
-  constructor() {
+  form: FormGroup;
+  user: UserInfo;
 
+  constructor(private loginService: LoginService) {
   }
+
   ngOnInit(): void {
   }
 
-  onRegister() {
-    console.log("asdada");
-  };
+  onRegister(userNickname: string) {
+    console.log(userNickname);
+    this.user = new UserInfo();
+    this.loginService.register(userNickname, this.user);
+  }
 }
