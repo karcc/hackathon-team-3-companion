@@ -43,8 +43,9 @@ public class HuntController {
         userInfo.setScore(0);
 
         userService.saveUser(userInfo);
-
-        return new ResponseEntity<>(userInfo, HttpStatus.OK);
+        ResponseEntity<UserInfo> response = new ResponseEntity<>(userInfo, HttpStatus.OK);
+        response.getHeaders().add("Access-Control-Allow-Origin", "*");
+        return response;
     }
 
 
@@ -62,8 +63,9 @@ public class HuntController {
         player.setQuestionSetId(newQuestion.getQuestionSetId());
         player.setCorrect(false);
         userService.saveUser(player);
-
-        return new ResponseEntity<>(newQuestion, HttpStatus.OK);
+        ResponseEntity<Questions> response = new ResponseEntity<>(newQuestion, HttpStatus.OK);
+        response.getHeaders().add("Access-Control-Allow-Origin", "*");
+        return response;
     }
 
     @GetMapping(value="/answer/{sessionId}/{answer}")
@@ -72,7 +74,10 @@ public class HuntController {
         UserInfo player = userService.findBySessionId(sessionId);
         player = questionService.checkAnswer(player, answer);
         userService.saveUser(player);
-        return new ResponseEntity<>(player, HttpStatus.OK);
+
+        ResponseEntity<UserInfo> response = new ResponseEntity<>(player, HttpStatus.OK);
+        response.getHeaders().add("Access-Control-Allow-Origin", "*");
+        return response;
     }
 
     @GetMapping(value="/scores/{sessionId}")
@@ -87,14 +92,20 @@ public class HuntController {
             highScores = highScoreService.findAll();
         }
 
-        return new ResponseEntity<>(highScores, HttpStatus.OK);
+        ResponseEntity<List<HighScores>> response = new ResponseEntity<>(highScores, HttpStatus.OK);
+        response.getHeaders().add("Access-Control-Allow-Origin", "*");
+
+        return response;
     }
 
     @GetMapping(value="/scores")
-    public ResponseEntity<List<HighScores>> pullAllHighScores(@PathVariable String sessionId) {
+    public ResponseEntity<List<HighScores>> pullAllHighScores() {
         log.info("Returning list of high scores...");
         List<HighScores> highScores = highScoreService.findAll();;
 
-        return new ResponseEntity<>(highScores, HttpStatus.OK);
+        ResponseEntity<List<HighScores>> response = new ResponseEntity<>(highScores, HttpStatus.OK);
+        response.getHeaders().add("Access-Control-Allow-Origin", "*");
+
+        return response;
     }
 }
