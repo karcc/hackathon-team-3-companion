@@ -40,9 +40,6 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.isLoaded = true;
     });
 
-<<<<<<< HEAD
-    this.setInitialTimer();
-=======
 
     console.log('question choices: ' + this.question.choices);
 
@@ -50,11 +47,10 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
     // Set and check timeout intervals
     this.decriment = 100 / this.countdownTime;
     this.timer = setInterval(() => {
-      this.countdownLogic();
+      this.runCountdownLogic();
     }, 1000);
 
 
->>>>>>> fbeaeac64a5cc02e572237939d6e0d8e7e17826a
   }
 
   passQuestion() {
