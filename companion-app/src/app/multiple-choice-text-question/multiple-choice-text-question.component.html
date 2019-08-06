@@ -1,15 +1,17 @@
 <div class="row">
     <div class="col text-center clearBoth">
-        <p style="margin-bottom: 2em;">
+        <p class="gameBar">
             <span class="leftAlign">
-                {{user.nickname}}
+                User: {{user.nickname}}
             </span>
             <span class="rightAlign">
                 Score: {{user.score}}
             </span>
+            <span class="timer">
+                <!-- TODO: Insert timer code here -->
+            </span>
         </p>
-        <img src="/companion-app/assets/images/login-logo.png" class="primaryImage" alt="Hint Image..." />
-        <!-- <img src="../../../resources/{{question.questionImage}}" class="primaryImage" alt="Hint Image..." /> -->
+        <img src="../../../resources/{{question.questionImage}}" class="primaryImage" alt="Hint Image..." />
         <div class="questionText">Question:
             {{question.questionText}}
         </div>
@@ -18,9 +20,6 @@
         </div>
         <button type="button" class="btn btn-success rightAlign" name="Send Answer">Send Answer</button>
         <div class="questionFooter">
-            <div class="timer">
-                <!-- TODO: Insert timer code here -->
-            </div>
             <button type="button" class="btn btn-danger leftAlign" (click)="passQuestion()">PASS</button>
 
         </div>

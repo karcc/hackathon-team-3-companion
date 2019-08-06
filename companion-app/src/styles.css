@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  background: linear-gradient(0deg,rgb(50, 56, 150),rgb(67, 121, 188));
+  background: radial-gradient(ellipse,rgb(67, 121, 188), rgb(50, 56, 150));
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #ffffff;
@@ -11,8 +11,19 @@ body {
   width: 100%;
   height: auto;
   max-height: 540px;
-  margin-bottom: 2em;
+  margin: 0em 0em 1em 0em;
   clear: both;
+}
+
+
+.gameBar {
+  overflow: auto;
+}
+
+.timer {
+	clear: left;
+	display: block;
+	overflow: auto;
 }
 
 .clearBoth {
