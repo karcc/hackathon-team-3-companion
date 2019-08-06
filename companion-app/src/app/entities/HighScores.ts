@@ -1,7 +1,7 @@
 export class HighScores{
   id: number;
   groupId: number;
-  nickName: string;
+  nickname: string;
   score: number;
   entryTime: string;
 }

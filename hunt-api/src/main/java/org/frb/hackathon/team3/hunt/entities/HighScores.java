@@ -8,8 +8,8 @@ public class HighScores {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column()
-    private Long id;
+    @Column(name="session_id")
+    private String sessionId;
 
     @Column()
     private int groupId;
@@ -22,14 +22,6 @@ public class HighScores {
 
     @Column(name="entry_time")
     private LocalDateTime entryTime;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNickname() {
         return nickname;
@@ -61,5 +53,13 @@ public class HighScores {
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
+    }
+
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
     }
 }

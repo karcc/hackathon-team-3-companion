@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {HighScores} from "../../entities/HighScores";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class LeaderboardService {
@@ -9,10 +10,8 @@ export class LeaderboardService {
   constructor(private http: HttpClient){}
 
 
-  getHighScores(){
-    return this.http.get<HighScores>(this.transactionUrl).subscribe((res) => {
-      console.log(res);
-    });
+  getHighScores(): Observable<HighScores>{
+    return this.http.get<HighScores>(this.transactionUrl);
   }
 
 }

@@ -11,10 +11,9 @@ import {QuestionService} from "../services/question-service";
 })
 export class MultipleChoiceTextQuestionComponent implements OnInit {
 
-  @Input()
-  sessionKey: string;
-
   isLoaded: boolean;
+
+  selectedAnswer: string;
 
   user: UserInfo;
   question: Questions;
@@ -41,11 +40,44 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.isLoaded = true;
     });
 
+<<<<<<< HEAD
     this.setInitialTimer();
+=======
+
+    console.log('question choices: ' + this.question.choices);
+
+
+    // Set and check timeout intervals
+    this.decriment = 100 / this.countdownTime;
+    this.timer = setInterval(() => {
+      this.countdownLogic();
+    }, 1000);
+
+
+>>>>>>> fbeaeac64a5cc02e572237939d6e0d8e7e17826a
   }
 
   passQuestion() {
     console.log('passing question!');
+  }
+
+  selectAnswer(choice: string): void {
+    console.log('Selected answer: ' + choice);
+    this.selectedAnswer = choice;
+  }
+
+  sendAnswer(): void {
+    console.log('sending answer: ' + this.selectedAnswer);
+    this.questionService.sendAnswer(this.user.sessionId, this.selectedAnswer).subscribe( userData => {
+      this.user = userData;
+      if(this.user.correct == true) {
+        console.log('Question answered correctly!');
+        this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
+          this.question = questiondata;
+          this.isLoaded = true;
+        });
+      }
+    });
   }
 
   submitQuestion() {

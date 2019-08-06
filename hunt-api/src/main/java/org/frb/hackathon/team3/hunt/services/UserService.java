@@ -12,11 +12,17 @@ public class UserService {
     @Autowired
     private UserInfoRepository userInfoRepository;
 
+    @Autowired
+    private HighScoreService highScoreService;
+
     public UserInfo findBySessionId(String sessionId) {
         return userInfoRepository.findBySessionId(sessionId);
     }
 
     public void saveUser(UserInfo userInfo) {
         userInfoRepository.save(userInfo);
+        if(userInfo.getScore() > 0){
+            highScoreService.saveHighScores(userInfo);
+        }
     }
 }

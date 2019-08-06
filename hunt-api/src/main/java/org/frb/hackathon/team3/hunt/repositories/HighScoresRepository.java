@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface HighScoresRepository extends JpaRepository<HighScores, Long> {
 
     List<HighScores> findByGroupId(int groupId);
+    HighScores findBySessionId(String sessionId);
 }
