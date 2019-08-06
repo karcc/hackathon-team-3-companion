@@ -1,0 +1,26 @@
+<div class="questionHeader">
+  <div class="leftAlign">
+    {{user.nickname}}
+  </div>
+  <div class="rightAlign">
+    Score: {{user.score}}
+  </div>
+</div>
+<div class="questionImage">
+  <img src="../../../resources/{{question.questionImage}}" height="400" width="600" />
+</div>
+<div class="questionText">
+  {{question.questionText}}
+</div>
+<div class="questionChoices">
+  <div *ngFor="let choice of question.choices" class="questionChoice">{{choice}}</div>
+</div>
+<button type="button" value="Send Answer" />
+<div class="questionFooter">
+  <div class="timer">
+    <!-- TODO: Insert timer code here -->
+  </div>
+  <div class="rightAlign">
+    <a onclick="passQuestion()">PASS</a>
+  </div>
+</div>

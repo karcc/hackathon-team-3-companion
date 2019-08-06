@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from './login/login.component';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { MultipleChoiceTextQuestionComponent } from './multiple-choice-text-question/multiple-choice-text-question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     InstructionsComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    MultipleChoiceTextQuestionComponent
   ],
   imports: [
     BrowserModule,
