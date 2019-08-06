@@ -30,7 +30,11 @@ public class QuestionService {
         if (answer.equals(answeredQuestion.getAnswer())) {
             // add the score based on time elapsed
             int secondsElapsed = (int)player.getQuestionStartTime().until(currentTime, ChronoUnit.SECONDS);
-            scoreToAdd += 100 - (secondsElapsed * 3);
+            if (secondsElapsed * 3 > 90){
+                scoreToAdd += 10;
+            } else {
+                scoreToAdd += 100 - (secondsElapsed * 3);
+            }
             player.setScore(player.getScore() + scoreToAdd);
             player.setCorrect(true);
         }

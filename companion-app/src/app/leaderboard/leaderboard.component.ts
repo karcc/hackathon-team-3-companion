@@ -15,10 +15,10 @@ export class LeaderboardComponent implements OnInit {
   constructor(private leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
-    this.leaderboardService.getHighScores();
+    this.leaderboardService.getHighScores().subscribe((res) => {
+      console.log("hsnick: " + res.nickname);
+      this.highscores = res;
+    });
   }
-
-
-
 
 }

@@ -101,7 +101,7 @@ public class HuntController {
     @GetMapping(value="/scores")
     public ResponseEntity<List<HighScores>> pullAllHighScores() {
         log.info("Returning list of high scores...");
-        List<HighScores> highScores = highScoreService.findAll();;
+        List<HighScores> highScores = highScoreService.findAll();
 
         ResponseEntity<List<HighScores>> response = new ResponseEntity<>(highScores, HttpStatus.OK);
         response.getHeaders().add("Access-Control-Allow-Origin", "*");
