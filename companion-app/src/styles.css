@@ -1,11 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
 body {
-  background: linear-gradient(90deg,rgb(50, 56, 150),rgb(67, 121, 188));
+  background: linear-gradient(0deg,rgb(50, 56, 150),rgb(67, 121, 188));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #ffffff;
 }
 
 .primaryImage {
   width: 100%;
   height: auto;
+  max-height: 540px;
   margin-bottom: 2em;
+  clear: both;
+}
+
+.clearBoth {
+  clear: both;
+}
+
+.leftAlign {
+  float: left;
+}
+.rightAlign {
+  float: right;
 }

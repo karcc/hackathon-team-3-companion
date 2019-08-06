@@ -6,7 +6,8 @@ import {QuestionService} from "../services/question-service";
 
 @Component({
   selector: 'app-multiple-choice-text-question',
-  templateUrl: './multiple-choice-text-question.component.html'
+  templateUrl: './multiple-choice-text-question.component.html',
+  styleUrls: ['../../assets/css/bootstrap.min.css'],
 })
 export class MultipleChoiceTextQuestionComponent implements OnInit {
 
