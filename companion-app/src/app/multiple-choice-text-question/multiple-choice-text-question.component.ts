@@ -14,19 +14,23 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   @Input()
   sessionKey: string;
 
+  isLoaded: boolean;
+
   user: UserInfo;
   question: Questions;
 
   constructor(private userService: UserInfoService,
-              private questionService: QuestionService) { }
+              private questionService: QuestionService) {
+    this.user = history.state.data.user;
+  }
 
   ngOnInit() {
-    this.userService.getUser(this.sessionKey).subscribe( userData => {
-      this.user = userData;
-    });
-
-    this.questionService.getQuestion(this.sessionKey).subscribe( questiondata => {
+    this.user = history.state.data.user;
+    console.log('mct: ' + this.user.sessionId);
+    console.log('mctname: ' + this.user.nickname);
+    this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
       this.question = questiondata;
+      this.isLoaded = true;
     });
   }
 
