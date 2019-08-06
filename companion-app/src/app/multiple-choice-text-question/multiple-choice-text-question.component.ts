@@ -1,6 +1,3 @@
-<span class="timer" #timer style="width: 100%;">
-</span>
-
 import {Component, Input, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {UserInfo} from "../entities/UserInfo";
 import {Questions} from "../entities/Questions";
@@ -16,12 +13,9 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
 
   @Input()
   sessionKey: string;
-<<<<<<< HEAD
-=======
 
   isLoaded: boolean;
 
->>>>>>> 9b45e7aed7666578dc53595339da032779756bd9
   user: UserInfo;
   question: Questions;
   timer = undefined;
@@ -53,8 +47,6 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
     this.timer = setInterval(() => {
       this.countdownLogic();
     }, 1000);
-
-
 
 
   }
