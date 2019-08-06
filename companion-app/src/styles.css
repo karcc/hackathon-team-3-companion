@@ -17,6 +17,7 @@ button {
   max-height: 540px;
   margin: 0em 0em 1em 0em;
   clear: both;
+  color: #ffa600;
 }
 
 
@@ -25,9 +26,11 @@ button {
 }
 
 .timer {
+  height: 2em;
 	clear: left;
 	display: block;
-	overflow: auto;
+  overflow: auto;
+  background-color: rgb(25, 233, 36);
 }
 
 .clearBoth {

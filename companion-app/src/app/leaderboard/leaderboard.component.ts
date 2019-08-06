@@ -6,7 +6,7 @@ import {LeaderboardService} from "./services/leaderboard.service";
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
-  styleUrls: ['../../assets/css/bootstrap.min.css']
+  styleUrls: ['../../assets/css/bootstrap.min.css'],
 })
 export class LeaderboardComponent implements OnInit {
 

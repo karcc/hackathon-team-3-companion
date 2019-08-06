@@ -1,8 +1,8 @@
-<h2>Leaderboard</h2>
-
-
-<div>
-  <div class="leftAlign">
-    {{highscores.nickName}} - {{highscores.score}}
-  </div>
+<div class="row">
+    <div class="col text-center clearBoth">
+        <h2><u>Leaderboard</u></h2>
+        <div *ngFor="let score of highscores" class="questionChoice">
+            {{score.nickName}} - {{score.score}}
+        </div>
+    </div>
 </div>
