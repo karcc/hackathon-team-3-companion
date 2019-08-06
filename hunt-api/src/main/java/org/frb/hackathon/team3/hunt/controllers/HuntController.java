@@ -1,6 +1,7 @@
 package org.frb.hackathon.team3.hunt.controllers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.frb.hackathon.team3.hunt.entities.HighScores;
 import org.frb.hackathon.team3.hunt.entities.Questions;
@@ -38,34 +39,39 @@ public class HuntController {
         userInfo.setEntryTime(LocalDateTime.now());
         userInfo.setQuestionCount(0);
         userInfo.setQuestionSetId(1);
-        userInfo.setCurrentQuestionId(0L);
+        userInfo.setCurrentQuestionId(0);
         userInfo.setGroupId(0);
         userInfo.setScore(0);
 
         userService.saveUser(userInfo);
-        ResponseEntity<UserInfo> response = new ResponseEntity<>(userInfo, HttpStatus.OK);
-        response.getHeaders().add("Access-Control-Allow-Origin", "*");
-        return response;
+
+        return new ResponseEntity<>(userInfo, HttpStatus.OK);
     }
 
+    @GetMapping(value="/user/{sessionId}")
+    public ResponseEntity<UserInfo> getUser(@PathVariable String sessionId) {
+        log.info("Getting user info for session id: " + sessionId);
+        UserInfo player = userService.findBySessionId(sessionId);
+
+        return new ResponseEntity<>(player, HttpStatus.OK);
+    }
 
     @GetMapping(value="/question/{sessionId}")
     public ResponseEntity<Questions> getQuestion(@PathVariable String sessionId) {
         log.info("Getting a new question for session id: " + sessionId);
         UserInfo player = userService.findBySessionId(sessionId);
 
-        Long newQuestionId = player.getCurrentQuestionId() + 1;
+        int newQuestionId = player.getCurrentQuestionId() + 1;
 
-        Questions newQuestion = questionService.findByIdAndQuestionSetId(newQuestionId, player.getQuestionSetId()).orElse(null);
-        player.setCurrentQuestionId(newQuestion.getId());
+        Questions newQuestion = questionService.findByLocationIdAndQuestionSetId(newQuestionId, player.getQuestionSetId());
+        player.setCurrentQuestionId(newQuestion.getLocationId());
         player.setQuestionStartTime(LocalDateTime.now());
         player.setQuestionCount(player.getQuestionCount()+1);
         player.setQuestionSetId(newQuestion.getQuestionSetId());
         player.setCorrect(false);
         userService.saveUser(player);
-        ResponseEntity<Questions> response = new ResponseEntity<>(newQuestion, HttpStatus.OK);
-        response.getHeaders().add("Access-Control-Allow-Origin", "*");
-        return response;
+
+        return new ResponseEntity<>(newQuestion, HttpStatus.OK);
     }
 
     @GetMapping(value="/answer/{sessionId}/{answer}")
@@ -75,9 +81,7 @@ public class HuntController {
         player = questionService.checkAnswer(player, answer);
         userService.saveUser(player);
 
-        ResponseEntity<UserInfo> response = new ResponseEntity<>(player, HttpStatus.OK);
-        response.getHeaders().add("Access-Control-Allow-Origin", "*");
-        return response;
+        return new ResponseEntity<>(player, HttpStatus.OK);
     }
 
     @GetMapping(value="/scores/{sessionId}")
@@ -92,10 +96,7 @@ public class HuntController {
             highScores = highScoreService.findAll();
         }
 
-        ResponseEntity<List<HighScores>> response = new ResponseEntity<>(highScores, HttpStatus.OK);
-        response.getHeaders().add("Access-Control-Allow-Origin", "*");
-
-        return response;
+        return new ResponseEntity<>(highScores, HttpStatus.OK);
     }
 
     @GetMapping(value="/scores")
@@ -103,9 +104,6 @@ public class HuntController {
         log.info("Returning list of high scores...");
         List<HighScores> highScores = highScoreService.findAll();
 
-        ResponseEntity<List<HighScores>> response = new ResponseEntity<>(highScores, HttpStatus.OK);
-        response.getHeaders().add("Access-Control-Allow-Origin", "*");
-
-        return response;
+        return new ResponseEntity<>(highScores, HttpStatus.OK);
     }
 }

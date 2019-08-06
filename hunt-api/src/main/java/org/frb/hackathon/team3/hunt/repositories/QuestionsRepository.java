@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface QuestionsRepository extends JpaRepository<Questions, Long> {
     Optional<Questions> findByIdAndQuestionSetId(Long newQuestionId, int questionSetId);
+
+    Optional<Questions> findByLocationIdAndQuestionSetId(int LocationId, int questionSetId);
 }

@@ -20,7 +20,7 @@ public class HighScoreService {
         return highScoresRepository.findByGroupId(groupId);
     }
 
-    public HighScores findBySessionId(String sessionId) { return highScoresRepository.findBySessionId(sessionId)};
+    public HighScores findBySessionId(String sessionId) { return highScoresRepository.findBySessionId(sessionId);}
 
     public List<HighScores> findAll() {
         return highScoresRepository.findAll();

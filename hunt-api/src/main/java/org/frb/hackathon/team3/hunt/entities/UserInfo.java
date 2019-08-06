@@ -25,7 +25,7 @@ public class UserInfo {
     private boolean correct;
 
     @Column(name="current_question")
-    private Long currentQuestionId;
+    private int currentQuestionId;
 
     @Column(name="question_set_id")
     private int questionSetId;
@@ -74,11 +74,11 @@ public class UserInfo {
         this.entryTime = entryTime;
     }
 
-    public Long getCurrentQuestionId() {
+    public int getCurrentQuestionId() {
         return currentQuestionId;
     }
 
-    public void setCurrentQuestionId(Long currentQuestionId) {
+    public void setCurrentQuestionId(int currentQuestionId) {
         this.currentQuestionId = currentQuestionId;
     }
 
