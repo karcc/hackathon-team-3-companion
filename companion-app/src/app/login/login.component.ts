@@ -3,6 +3,7 @@ import {LoginService} from "./services/login.service";
 import {FormGroup} from "@angular/forms";
 import {UserInfo} from "../entities/UserInfo";
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'companion-login',
@@ -25,12 +26,15 @@ export class LoginComponent implements OnInit {
   onRegister(userNickname: string) {
     console.log(userNickname);
     this.user = new UserInfo();
-    this.loginService.register(userNickname, this.user);
-    console.log(this.user.sessionId);
-    //this.instructionsNavigation();
+    this.loginService.postUserInfo(userNickname, this.user).subscribe((res) => {
+      this.user = res;
+      console.log("loggin second: " + this.user.sessionId);
+      this.instructionsNavigation();
+    });
   }
 
+
   instructionsNavigation(){
-    this.router.navigate(['/instructions'], {state: {data: {userData : this.user}}});
+    this.router.navigate(['/instructions'], {state: {data: {user: this.user}}});
   }
 }

@@ -1,6 +1,8 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {UserInfo} from "../../entities/UserInfo";
+import {Observable} from "rxjs";
+import {API_URL} from "../../services/user-info-service";
 
 @Injectable()
 export class LoginService {
@@ -9,27 +11,9 @@ export class LoginService {
 
   constructor(private http: HttpClient){}
 
-/*  httpOptions = {
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Origin' : '*',
-      'content-type' : 'text/plain'
-    })
-  };*/
 
-
-  register(id: string, user: UserInfo) {
-    console.log('this is id: ' + id);
-    console.log('this is user: ' + user);
-    user.nickname = id;
-    return this.postUserInfo(user);
-
-  }
-
-  postUserInfo(user: UserInfo){
-    return this.http.post<UserInfo>(this.transactionUrl, user).subscribe((res) => {
-      user.sessionId = res.sessionId;
-      console.log(res);
-      console.log('user object: ' + user.sessionId);
-    });
+  postUserInfo(nickname: string, user: UserInfo): Observable<UserInfo>{
+    user.nickname = nickname;
+    return this.http.post<UserInfo>(this.transactionUrl, user);
   }
 }

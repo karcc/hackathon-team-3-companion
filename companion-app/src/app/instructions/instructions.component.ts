@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {UserInfo} from "../entities/UserInfo";
 
 @Component({
   selector: 'app-instructions',
@@ -8,11 +9,15 @@ import {Router} from "@angular/router";
 })
 export class InstructionsComponent implements OnInit {
 
+  user: UserInfo;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
-
-    console.log(this.router.getCurrentNavigation().extras.state.userData.sessionId);
+    this.user = history.state.data.user;
+    //console.log(this.router.getCurrentNavigation().extras.state.user);
+    console.log("historyy " + history.state.data.user.sessionId);
+    console.log("historyy222 " + this.user.sessionId);
   }
 
   onRegister() {
