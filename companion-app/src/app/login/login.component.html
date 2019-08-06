@@ -1,10 +1,12 @@
-<img src="" alt="Login Logo"/>
+<div class="row">
+    <div class="col text-center">
+      <img src="" alt="Login Logo"/>
 
 <form>
   <div class="form-group">
     <label for="name">Enter Your Nickname</label>
-    <input type="text" class="form-control" id="name" required placeholder="Nickname..."/>
+    <input #userNickname type="text" class="form-control" id="name" required placeholder="Nickname..."/>
   </div>
 
-  <button type="submit" class="btn btn-success" (click)="onRegister()">Let's Play!</button>
+  <button type="button" class="btn btn-success" (click)="onRegister(userNickname.value)">Let's Play!</button>
 </form>

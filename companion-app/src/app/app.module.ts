@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import {LoginComponent} from './login/login.component';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { MultipleChoiceTextQuestionComponent } from './multiple-choice-text-question/multiple-choice-text-question.component';
+import {MultipleChoiceTextQuestionComponent} from "./multiple-choice-text-question/multiple-choice-text-question.component";
+import {HttpClientModule} from "@angular/common/http";
+import {LoginService} from "./login/services/login.service";
 
 @NgModule({
   declarations: [
@@ -18,9 +20,12 @@ import { MultipleChoiceTextQuestionComponent } from './multiple-choice-text-ques
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

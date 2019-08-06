@@ -12,4 +12,7 @@ export class InstructionsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRegister() {
+    console.log("asdada");
+  };
 }
