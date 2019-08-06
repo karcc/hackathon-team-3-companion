@@ -5,7 +5,7 @@ import {UserInfo} from "../../entities/UserInfo";
 @Injectable()
 export class LoginService {
 
-  transactionUrl = 'http://ec2-34-205-166-79.compute-1.amazonaws.com:3389/hunt/newgame';
+  transactionUrl = 'https://ec2-34-205-166-79.compute-1.amazonaws.com:3389/hunt/newgame';
 
   constructor(private http: HttpClient){}
 
