@@ -15,12 +15,14 @@ export class InstructionsComponent implements OnInit {
 
   ngOnInit() {
     this.user = history.state.data.user;
-    //console.log(this.router.getCurrentNavigation().extras.state.user);
-    console.log("historyy " + history.state.data.user.sessionId);
-    console.log("historyy222 " + this.user.sessionId);
+
   }
 
   onRegister() {
-    console.log("asdada");
+    this.questionNavigation();
   };
+
+  questionNavigation(){
+    this.router.navigate(['/mctquestion'], {state: {data: {user: this.user}}});
+  }
 }

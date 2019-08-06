@@ -16,6 +16,12 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
 
   @Input()
   sessionKey: string;
+<<<<<<< HEAD
+=======
+
+  isLoaded: boolean;
+
+>>>>>>> 9b45e7aed7666578dc53595339da032779756bd9
   user: UserInfo;
   question: Questions;
   timer = undefined;
@@ -28,15 +34,17 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   countdownTime: number = 60 * 1;  // 60 for secounds times whatever for minutes...
 
   constructor(private userService: UserInfoService,
-              private questionService: QuestionService) { }
+              private questionService: QuestionService) {
+    this.user = history.state.data.user;
+  }
 
   ngOnInit() {
-    this.userService.getUser(this.sessionKey).subscribe( userData => {
-      this.user = userData;
-    });
-
-    this.questionService.getQuestion(this.sessionKey).subscribe( questiondata => {
+    this.user = history.state.data.user;
+    console.log('mct: ' + this.user.sessionId);
+    console.log('mctname: ' + this.user.nickname);
+    this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
       this.question = questiondata;
+      this.isLoaded = true;
     });
 
 
