@@ -21,7 +21,7 @@ public class Questions {
     private String questionType;    // checkbox, multiple choice text, multiple choice image
 
     @Column(name="question_image")
-    private String image;
+    private String questionImage;
 
     @Column(name="question_text")
     private String questionText;    // the question text
@@ -62,12 +62,12 @@ public class Questions {
         this.questionType = questionType;
     }
 
-    public String getImage() {
-        return image;
+    public String getQuestionImage() {
+        return questionImage;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setQuestionImage(String questionImage) {
+        this.questionImage = questionImage;
     }
 
     public String getQuestionText() {

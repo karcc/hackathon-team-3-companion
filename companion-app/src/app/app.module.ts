@@ -9,6 +9,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import {MultipleChoiceTextQuestionComponent} from "./multiple-choice-text-question/multiple-choice-text-question.component";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginService} from "./login/services/login.service";
+import {QuestionService} from "./services/question-service";
+import {UserInfoService} from "./services/user-info-service";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {LoginService} from "./login/services/login.service";
     HttpClientModule
   ],
   providers: [
-    LoginService
+    LoginService,
+    UserInfoService,
+    QuestionService
   ],
   bootstrap: [AppComponent]
 })
