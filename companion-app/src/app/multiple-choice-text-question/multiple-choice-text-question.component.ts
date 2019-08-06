@@ -23,8 +23,8 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   @ViewChild('timer', undefined) timerElm: ElementRef;
 
   decriment: number  = 0;
-  const warnningTime: number  = 65;
-  const criticalTime: number  = 30;
+  warnningTime: number  = 65;
+  criticalTime: number  = 30;
   countdownTime: number = 60 * 1;  // 60 for secounds times whatever for minutes...
 
   constructor(private userService: UserInfoService,
@@ -41,14 +41,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.isLoaded = true;
     });
 
-
-    // Set and check timeout intervals
-    this.decriment = 100 / this.countdownTime;
-    this.timer = setInterval(() => {
-      this.countdownLogic();
-    }, 1000);
-
-
+    this.setInitialTimer();
   }
 
   passQuestion() {
@@ -59,7 +52,15 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
     console.log('submitting question!');
   }
 
-  countdownLogic() {
+  setInitialTimer() {
+    // Set and check timeout intervals
+    this.decriment = 100 / this.countdownTime;
+    this.timer = setInterval(() => {
+      this.runCountdownLogic();
+    }, 1000);
+  }
+
+  runCountdownLogic() {
     if(this.countdownTime > 0) {
       this.countdownTime -= 1;
       const wdth: string = this.timerElm.nativeElement.style.width;

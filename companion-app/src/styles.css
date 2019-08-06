@@ -20,7 +20,6 @@ button {
   color: #ffa600;
 }
 
-
 .gameBar {
   overflow: auto;
 }
@@ -31,6 +30,11 @@ button {
 	display: block;
   overflow: auto;
   background-color: rgb(25, 233, 36);
+}
+
+
+.questionChoices {
+  margin: 0em 0em 1em 0em;
 }
 
 .clearBoth {
