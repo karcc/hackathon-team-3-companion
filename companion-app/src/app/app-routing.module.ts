@@ -9,11 +9,9 @@ import {MultipleChoiceTextQuestionComponent} from "./multiple-choice-text-questi
 const routes: Routes = [
   { path: 'mctquestion', component: MultipleChoiceTextQuestionComponent},
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'instructions', component: InstructionsComponent },
   { path: 'leaderboard', component: LeaderboardComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
-
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
