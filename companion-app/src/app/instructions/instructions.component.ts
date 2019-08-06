@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-instructions',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstructionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+
+    console.log(this.router.getCurrentNavigation().extras.state.userData.sessionId);
   }
 
   onRegister() {

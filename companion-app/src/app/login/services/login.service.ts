@@ -27,7 +27,9 @@ export class LoginService {
 
   postUserInfo(user: UserInfo){
     return this.http.post<UserInfo>(this.transactionUrl, user).subscribe((res) => {
+      user.sessionId = res.sessionId;
       console.log(res);
+      console.log('user object: ' + user.sessionId);
     });
   }
 }

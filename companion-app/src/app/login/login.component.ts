@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoginService} from "./services/login.service";
 import {FormGroup} from "@angular/forms";
 import {UserInfo} from "../entities/UserInfo";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'companion-login',
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   user: UserInfo;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -24,5 +26,11 @@ export class LoginComponent implements OnInit {
     console.log(userNickname);
     this.user = new UserInfo();
     this.loginService.register(userNickname, this.user);
+    console.log(this.user.sessionId);
+    //this.instructionsNavigation();
+  }
+
+  instructionsNavigation(){
+    this.router.navigate(['/instructions'], {state: {data: {userData : this.user}}});
   }
 }
