@@ -11,11 +11,17 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
 
-    @Autowired
+    //@Autowired
     private UserInfoRepository userInfoRepository;
 
-    @Autowired
+    //@Autowired
     private HighScoreService highScoreService;
+
+
+    public UserService(UserInfoRepository userInfoRepository, HighScoreService highScoreService){
+        this.userInfoRepository = userInfoRepository;
+        this.highScoreService = highScoreService;
+    }
 
     public UserInfo findBySessionId(String sessionId) {
         return userInfoRepository.findBySessionId(sessionId);
@@ -25,7 +31,8 @@ public class UserService {
         userInfoRepository.save(userInfo);
         log.info("Made it to save user after answer");
         if(userInfo.getScore() > 0){
-            //highScoreService.saveHighScores(userInfo);
+            highScoreService.saveHighScores(userInfo);
+            log.info("this is userinfo in userservice: " + userInfo.getSessionId());
         }
     }
 }

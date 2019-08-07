@@ -8,6 +8,9 @@ public class HighScores {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private Long id;
+
     @Column(name="session_id")
     private String sessionId;
 
@@ -22,6 +25,14 @@ public class HighScores {
 
     @Column(name="entry_time")
     private LocalDateTime entryTime;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNickname() {
         return nickname;

@@ -1,6 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="hunt:war exploded">
     <output-path>$PROJECT_DIR$/hunt-api/target/hunt-0.0.1-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>hunt</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -9,7 +16,6 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:2.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.1.6.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.1.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.4" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:3.2.0" />
@@ -57,6 +63,11 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.1.8.RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.9" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-security:2.1.6.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.1.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.1.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.1.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.1.6.RELEASE" />
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.2.5" />
