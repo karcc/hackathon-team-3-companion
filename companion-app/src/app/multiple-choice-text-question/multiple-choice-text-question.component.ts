@@ -80,10 +80,6 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
     this.setInitialTimer();
   }
 
-  submitQuestion() {
-    console.log('submitting question!');
-  }
-
   setInitialTimer() {
     // Set and check timeout intervals
     this.decriment = 100 / this.countdownTime;
@@ -97,19 +93,20 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.countdownTime -= 1;
       const wdth: string = this.timerElm.nativeElement.style.width;
       const timerSize: number =  parseInt(wdth.replace('%', ''), 10) - this.decriment;
+      elm = this.timerElm.nativeElement
 
-      this.timerElm.nativeElement.style.width = timerSize + "%";
+      elm.style.width = timerSize + "%";
 
       if(timerSize <= this.warnningTime &&
          timerSize >= this.criticalTime) {
-          this.timerElm.nativeElement.style.backgroundColor = "#ffa600";
+          elm.style.backgroundColor = "#ffa600";
       } else if(timerSize <= this.warnningTime &&
                 timerSize <= this.criticalTime) {
-                  this.timerElm.nativeElement.style.backgroundColor = "#ff0000";
+                  elm.style.backgroundColor = "#ff0000";
       }
     } else if (this.countdownTime <= 0) {
       clearInterval(this.timer);
-      this.submitQuestion();
+      this.sendAnswer();
     }
   }
 }
