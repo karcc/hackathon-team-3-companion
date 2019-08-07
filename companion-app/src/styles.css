@@ -1,49 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  background: linear-gradient(0deg,rgb(50, 56, 150),rgb(67, 121, 188));
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: #ffffff;
+    background: linear-gradient(0deg,rgb(50, 56, 150),rgb(67, 121, 188));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
 }
 
 button {
-  width: 100% !important;
+    width: 100% !important;
 }
 
 .primaryImage {
-  width: 100%;
-  height: auto;
-  max-height: 540px;
-  margin: 0em 0em 1em 0em;
-  clear: both;
-  color: #ffa600;
+    width: 100%;
+    height: auto;
+    max-height: 540px;
+    margin: 0em 0em 1em 0em;
+    clear: both;
+    color: #ffa600;
 }
 
 .gameBar {
-  overflow: auto;
+    overflow: auto;
 }
 
 .timer {
-  height: 2em;
-	clear: left;
-	display: block;
-  overflow: auto;
-  background-color: rgb(25, 233, 36);
+    height: 2em;
+    clear: left;
+    display: block;
+    overflow: auto;
+    background-color: rgb(25, 233, 36);
 }
 
 
 .questionChoices {
-  margin: 0em 0em 1em 0em;
+    margin: 0em 0em 1em 0em;
 }
 
 .clearBoth {
-  clear: both;
+    clear: both;
 }
 
 .leftAlign {
-  float: left;
+    float: left;
 }
 .rightAlign {
-  float: right;
+    float: right;
 }

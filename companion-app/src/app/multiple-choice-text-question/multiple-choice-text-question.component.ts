@@ -21,7 +21,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
 
   @ViewChild('timer', undefined) timerElm: ElementRef;
 
-  decriment: number  = 0;
+  decriment: number     = 0;
   warnningTime: number  = 65;
   criticalTime: number  = 30;
   countdownTime: number = 60 * 1;  // 60 for secounds times whatever for minutes...
@@ -40,11 +40,9 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.isLoaded = true;
     });
 
-    this.setInitialTimer();
-
     console.log('question choices: ' + this.question.choices);
 
-
+    this.setInitialTimer();
     // Set and check timeout intervals
     this.decriment = 100 / this.countdownTime;
     this.timer = setInterval(() => {
@@ -75,6 +73,11 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
         });
       }
     });
+
+    elm = this.timerElm.nativeElement;
+    elm.style.width = "100%";
+    elm.style.backgroundColor = "rgb(25, 233, 36)";
+    this.setInitialTimer();
   }
 
   submitQuestion() {
