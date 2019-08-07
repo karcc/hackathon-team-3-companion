@@ -62,6 +62,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   }
 
   sendAnswer(): void {
+    clearInterval(this.timer);
     console.log('sending answer: ' + this.selectedAnswer);
     this.questionService.sendAnswer(this.user.sessionId, this.selectedAnswer).subscribe( userData => {
       this.user = userData;
@@ -90,7 +91,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
 
   runCountdownLogic() {
     if(this.countdownTime > 0) {
-      elm = this.timerElm.nativeElement;
+      let elm = this.timerElm.nativeElement;
       this.countdownTime -= 1;
       const wdth: string = elm.style.width;
       const timerSize: number =  parseInt(wdth.replace('%', ''), 10) - this.decriment;
@@ -105,7 +106,6 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
                   elm.style.backgroundColor = "#ff0000";
       }
     } else if (this.countdownTime <= 0) {
-      clearInterval(this.timer);
       this.sendAnswer();
     }
   }
