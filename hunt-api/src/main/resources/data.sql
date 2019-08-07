@@ -50,36 +50,28 @@ INSERT INTO questions_choices (questions_id,choices) VALUES (5, 'Watermark');
 INSERT INTO questions_choices (questions_id,choices) VALUES (5, 'Low-Vision Feature');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (6,7,1,'mc2 text','Vault.png','While watching the video, what is in the Vault?','Stacks of Money|People',60,100);
-INSERT INTO questions_choices (questions_id,choices) VALUES (6, 'Legos');
-INSERT INTO questions_choices (questions_id,choices) VALUES (6, 'Quarters');
-INSERT INTO questions_choices (questions_id,choices) VALUES (6, 'Stacks of Money');
-INSERT INTO questions_choices (questions_id,choices) VALUES (6, 'Cars');
-INSERT INTO questions_choices (questions_id,choices) VALUES (6,'People');
+VALUES (6,7,1,'mc text', 'Jenga.png', 'U.S. Bank failures cost customers how much in Deposits between 1929 and 1933 which resulted in Congress creating the Federal Deposit Insurance Corporation in 1933?','$1.3 billion',60,100);
+INSERT INTO questions_choices (questions_id,choices) VALUES (6, '$1.3 billion');
+INSERT INTO questions_choices (questions_id,choices) VALUES (6, '$8 trillion');
+INSERT INTO questions_choices (questions_id,choices) VALUES (6, '$150 million');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (7,8,1,'mc text', 'Jenga.png', 'U.S. Bank failures cost customers how much in Deposits between 1929 and 1933 which resulted in Congress creating the Federal Deposit Insurance Corporation in 1933?','$1.3 billion',60,100);
-INSERT INTO questions_choices (questions_id,choices) VALUES (7, '$1.3 billion');
-INSERT INTO questions_choices (questions_id,choices) VALUES (7, '$8 trillion');
-INSERT INTO questions_choices (questions_id,choices) VALUES (7, '$150 million');
+VALUES (7,8,1,'mc text', 'StatueofLiberty.png', 'What object weighs more than the U.S. Gold Reserve?','WashingtonMonument.png',60,100);
+INSERT INTO questions_choices (questions_id,choices) VALUES (7, 'StatueofLiberty.png');
+INSERT INTO questions_choices (questions_id,choices) VALUES (7, 'FireEngine.png');
+INSERT INTO questions_choices (questions_id,choices) VALUES (7, 'Car.png');
+INSERT INTO questions_choices (questions_id, choices) VALUES (7, 'Tractor.png');
+INSERT INTO questions_choices (questions_id,choices) VALUES (7, 'WashingtonMonument.png');
+INSERT INTO questions_choices (questions_id, choices) VALUES (7,'LibertyBell.png');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (8,9,1,'mc text', 'StatueofLiberty.png', 'What object weighs more than the U.S. Gold Reserve?','WashingtonMonument.png',60,100);
-INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'StatueofLiberty.png');
-INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'FireEngine.png');
-INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'Car.png');
-INSERT INTO questions_choices (questions_id, choices) VALUES (8, 'Tractor.png');
-INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'WashingtonMonument.png');
-INSERT INTO questions_choices (questions_id, choices) VALUES (8,'LibertyBell.png');
+VALUES (8,9,1,'mc2 text', 'Database.png','I’m a FREE database of hundreds of thousands of facts and figures that cover about anything. What’s my name?','FRED',60,100);
+INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'FRED');
+INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'BRAD');
+INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'JOHN');
+INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'MIKE');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (9,10,1,'mc2 text', 'Database.png','I’m a FREE database of hundreds of thousands of facts and figures that cover about anything. What’s my name?','FRED',60,100);
-INSERT INTO questions_choices (questions_id,choices) VALUES (9, 'FRED');
-INSERT INTO questions_choices (questions_id,choices) VALUES (9, 'BRAD');
-INSERT INTO questions_choices (questions_id,choices) VALUES (9, 'JOHN');
-INSERT INTO questions_choices (questions_id,choices) VALUES (9, 'MIKE');
-
-INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (10,11,1,'mc2 text', 'TreasuryChest.png','You will find me on the way out the exit or on the way into the gift shop. Have fun finding me and keep it as a souvenir for visiting the St. Louis Federal Reserve Economy Museum. Did you find me?','YES',60,100);
-INSERT INTO questions_choices (questions_id,choices) VALUES (10, 'YES');
-INSERT INTO questions_choices (questions_id,choices) VALUES (10, 'NO');
+VALUES (9,10,1,'mc2 text', 'TreasuryChest.png','You will find me on the way out the exit or on the way into the gift shop. Have fun finding me and keep it as a souvenir for visiting the St. Louis Federal Reserve Economy Museum. Did you find me?','YES',60,100);
+INSERT INTO questions_choices (questions_id,choices) VALUES (9, 'YES');
+INSERT INTO questions_choices (questions_id,choices) VALUES (9, 'NO');

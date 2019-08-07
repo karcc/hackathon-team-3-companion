@@ -40,6 +40,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.isLoaded = true;
     });
 
+    this.setInitialTimer();
 
     console.log('question choices: ' + this.question.choices);
 

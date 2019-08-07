@@ -35,7 +35,7 @@ public class QuestionService {
                 scoreToAdd += 100 - (secondsElapsed * 3);
             }
             log.info("User answered question correctly");
-            scoreToAdd += 100 - (secondsElapsed * 3);
+
             player.setScore(player.getScore() + scoreToAdd);
             player.setCorrect(true);
         } else {

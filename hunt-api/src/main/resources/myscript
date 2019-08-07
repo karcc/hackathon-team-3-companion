@@ -1,0 +1,17 @@
+#!/bin/bash
+# Hunt-Api
+#
+# description: autostart hunt api
+
+case $1 in
+    start)
+        /bin/bash /usr/local/bin/start.sh
+    ;;
+    stop)
+        
+    ;;
+    restart)
+
+    ;;
+esac
+exit 0
