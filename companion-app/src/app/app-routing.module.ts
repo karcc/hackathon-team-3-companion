@@ -11,8 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'instructions', component: InstructionsComponent },
   { path: 'leaderboard', component: LeaderboardComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'leaderboard', redirectTo: 'leaderboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
