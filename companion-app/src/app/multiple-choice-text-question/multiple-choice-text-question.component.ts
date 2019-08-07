@@ -71,7 +71,6 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
           this.question = questiondata;
           this.isLoaded = true;
           clearInterval(this.timer);
-          this.setInitialTimer();
         });
       }
     });
