@@ -10,15 +10,18 @@ import {LeaderboardService} from "./services/leaderboard.service";
 })
 export class LeaderboardComponent implements OnInit {
 
-  highscores: HighScores;
+  highscores: any;
 
   constructor(private leaderboardService: LeaderboardService) { }
 
   ngOnInit() {
     this.leaderboardService.getHighScores().subscribe((res) => {
-      console.log("hsnick: " + res.nickname);
+      console.log(res);
       this.highscores = res;
+      console.log('highscores array: ' + this.highscores);
     });
+
+
   }
 
 }
