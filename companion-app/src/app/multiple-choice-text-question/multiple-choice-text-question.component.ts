@@ -54,6 +54,11 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
 
   passQuestion() {
     console.log('passing question!');
+    this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
+      this.question = questiondata;
+      this.isLoaded = true;
+      clearInterval(this.timer);
+    });
   }
 
   selectAnswer(choice: string): void {
@@ -107,7 +112,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       }
     } else if (this.countdownTime <= 0) {
       clearInterval(this.timer);
-      this.sendAnswer();
+      this.passQuestion();
     }
   }
 }
