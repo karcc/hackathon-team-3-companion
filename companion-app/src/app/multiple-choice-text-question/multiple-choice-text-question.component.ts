@@ -62,7 +62,6 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   }
 
   sendAnswer(): void {
-    clearInterval(this.timer);
     console.log('sending answer: ' + this.selectedAnswer);
     this.questionService.sendAnswer(this.user.sessionId, this.selectedAnswer).subscribe( userData => {
       this.user = userData;
@@ -72,14 +71,15 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
           this.question = questiondata;
           this.isLoaded = true;
           clearInterval(this.timer);
+          this.countdownTime = 60 * 1;
+          let elm = this.timerElm.nativeElement;
+          elm.style.width = "100%";
+          elm.style.backgroundColor = "rgb(25, 233, 36)";
+          this.setInitialTimer();
         });
       }
     });
 
-    let elm = this.timerElm.nativeElement;
-    elm.style.width = "100%";
-    elm.style.backgroundColor = "rgb(25, 233, 36)";
-    this.setInitialTimer();
   }
 
   setInitialTimer() {
@@ -98,13 +98,10 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       const timerSize: number =  parseInt(wdth.replace('%', ''), 10) - this.decriment;
 
       elm.style.width = timerSize + "%";
-
-      if(timerSize <= this.warnningTime &&
-         timerSize >= this.criticalTime) {
+      if(timerSize <= this.warnningTime && timerSize >= this.criticalTime) {
           elm.style.backgroundColor = "#ffa600";
-      } else if(timerSize <= this.warnningTime &&
-                timerSize <= this.criticalTime) {
-                  elm.style.backgroundColor = "#ff0000";
+      } else if(timerSize <= this.warnningTime && timerSize <= this.criticalTime) {
+          elm.style.backgroundColor = "#ff0000";
       }
     } else if (this.countdownTime <= 0) {
       this.sendAnswer();
