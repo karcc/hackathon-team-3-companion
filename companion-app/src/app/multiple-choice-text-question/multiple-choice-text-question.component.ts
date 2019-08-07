@@ -16,7 +16,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
 
   selectedAnswer: string;
   selectedCss = 'selected';
-
+  wrongAnswer: string;
   user: UserInfo;
   question: Questions;
   timer = undefined;
@@ -91,6 +91,8 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
         });
       } else {
         this.wrongAudioElm.nativeElement.play();
+        this.wrongAnswer = this.selectedAnswer;
+        this.selectedAnswer = undefined;
       }
     });
 
