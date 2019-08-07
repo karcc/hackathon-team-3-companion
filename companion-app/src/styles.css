@@ -82,3 +82,7 @@ button {
   color: black;
   text-shadow: lightgray 1px 1px;
 }
+
+table {
+  width: 50%;
+}

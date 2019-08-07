@@ -11,6 +11,8 @@ import {LeaderboardService} from "./services/leaderboard.service";
 export class LeaderboardComponent implements OnInit {
 
   highscores: any;
+  displayedColumns: string[] = ['position', 'name', 'score'];
+  datasource: any;
 
   constructor(private leaderboardService: LeaderboardService) { }
 
@@ -18,6 +20,7 @@ export class LeaderboardComponent implements OnInit {
     this.leaderboardService.getHighScores().subscribe((res) => {
       console.log(res);
       this.highscores = res;
+      this.datasource = res;
       console.log('highscores array: ' + this.highscores);
     });
 
