@@ -90,10 +90,10 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
 
   runCountdownLogic() {
     if(this.countdownTime > 0) {
-      this.countdownTime -= 1;
-      const wdth: string = this.timerElm.nativeElement.style.width;
-      const timerSize: number =  parseInt(wdth.replace('%', ''), 10) - this.decriment;
       elm = this.timerElm.nativeElement
+      this.countdownTime -= 1;
+      const wdth: string = elm.style.width;
+      const timerSize: number =  parseInt(wdth.replace('%', ''), 10) - this.decriment;
 
       elm.style.width = timerSize + "%";
 
