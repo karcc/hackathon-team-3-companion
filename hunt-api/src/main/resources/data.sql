@@ -1,8 +1,3 @@
-INSERT INTO user_info (id, group_id, nickname, score, current_question, question_set_id, session_id, question_count, entry_time,correct, question_start_time)
-            VALUES (0, 0, 'Bullard', 9001, 0, 1, 'abcdefg', 1, TO_TIMESTAMP('2019-08-05 12:00:00.000000000', 'YYYY-MM-DD HH24:MI:SS.FF'),false,TO_TIMESTAMP('2019-08-05 12:00:00.000000000', 'YYYY-MM-DD HH24:MI:SS.FF'));
-INSERT INTO user_info (id, group_id, nickname, score, current_question, question_set_id, session_id, question_count, entry_time,correct, question_start_time)
-            VALUES (1, 0, 'Sapanero', 1337, 0, 1, 'superman', 1, TO_TIMESTAMP('2019-08-05 12:00:00.000000000', 'YYYY-MM-DD HH24:MI:SS.FF'),false,TO_TIMESTAMP('2019-08-05 12:00:00.000000000', 'YYYY-MM-DD HH24:MI:SS.FF'));
-
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
 VALUES (0,1,1,'mc image', 'EconomyMuseum.png','I display what it would take to contain $1,000,000. Which object am I?','Cube.png',60,100);
 INSERT INTO questions_choices (questions_id,choices) VALUES (0, 'Truck.png');
