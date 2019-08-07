@@ -40,6 +40,14 @@ button {
     margin: 0em 0em 1em 0em;
 }
 
+
+.leaderboardTable {
+  margin: 0 auto;
+  font-size: 135%;
+  text-align: center;
+}
+
+
 .clearBoth {
     clear: both;
 }
