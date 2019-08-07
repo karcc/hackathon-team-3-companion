@@ -33,8 +33,15 @@
       </div>
 
       <div class="questionFooter">
-        <button type="button" class="btn btn-danger leftAlign" style="width:50% !important;" (click)="passQuestion()">PASS</button>
-        <button type="button" class="btn btn-success rightAlign" style="width:50% !important;" name="Send Answer" (click)="sendAnswer()">Send Answer</button>
+        <button type="button" class="btn btn-danger leftAlign" style="width:15% !important;" (click)="passQuestion()">PASS</button>
+        <button type="button" class="btn btn-success rightAlign" style="width:85% !important;" name="Send Answer" (click)="sendAnswer()">Send Answer</button>
       </div>
     </div>
+
+    <audio #correctAudio>
+      <source src="/companion-app/assets/sounds/correct.mp3" type="audio/mpeg">
+    </audio>
+    <audio #wrongAudio>
+      <source src="/companion-app/assets/sounds/wrong.mp3" type="audio/mpeg">
+    </audio>
 </div>

@@ -22,6 +22,8 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   timer = undefined;
 
   @ViewChild('timer', undefined) timerElm: ElementRef;
+  @ViewChild('correctAudio', undefined) correctAudioElm: ElementRef;
+  @ViewChild('wrongAudio', undefined) wrongAudioElm: ElementRef;
 
   decriment: number     = 0;
   warnningTime: number  = 65;
@@ -75,6 +77,8 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
     this.questionService.sendAnswer(this.user.sessionId, this.selectedAnswer).subscribe( userData => {
       this.user = userData;
       if(this.user.correct == true) {
+        console.log(this.correctAudioElm.nativeElement);
+        this.correctAudioElm.nativeElement.play();
         console.log('Question answered correctly!');
         this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
           if (questiondata == null) {
@@ -84,6 +88,8 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
           this.isLoaded = true;
           this.setTimerData();
         });
+      } else {
+        this.wrongAudioElm.nativeElement.play();
       }
     });
 
