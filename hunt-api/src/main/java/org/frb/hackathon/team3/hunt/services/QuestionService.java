@@ -40,6 +40,7 @@ public class QuestionService {
             player.setCorrect(true);
         } else {
             log.info("User did not answer correctly");
+            player.setScore(player.getScore() - 30);
         }
 
         return player;

@@ -36,6 +36,9 @@ public class HuntController {
     public ResponseEntity<UserInfo> createNewGame(@RequestBody UserInfo userInfo) {
         log.info("Creating a new user and game.");
         String sessionId = RandomStringUtils.randomAlphanumeric(12);
+        if(userInfo.getNickname().equals(null)) {
+            userInfo.setNickname("Guest");
+        }
         userInfo.setSessionId(sessionId);
         userInfo.setEntryTime(LocalDateTime.now());
         userInfo.setQuestionCount(0);
