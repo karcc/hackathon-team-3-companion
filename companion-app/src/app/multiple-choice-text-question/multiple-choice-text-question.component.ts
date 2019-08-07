@@ -26,7 +26,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   decriment: number     = 0;
   warnningTime: number  = 65;
   criticalTime: number  = 30;
-  countdownTime: number = 60 * 1;  // 60 for secounds times whatever for minutes...
+  countdownTime: number = 30 * 1;  // 60 for secounds times whatever for minutes...
 
   constructor(private userService: UserInfoService,
               private questionService: QuestionService,
@@ -38,21 +38,18 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
     this.user = history.state.data.user;
     console.log('mct: ' + this.user.sessionId);
     console.log('mctname: ' + this.user.nickname);
+
+
     this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
       this.question = questiondata;
       this.isLoaded = true;
     });
 
     console.log('question choices: ' + this.question.choices);
+  }
 
-    this.setInitialTimer();
-    // Set and check timeout intervals
-    this.decriment = 100 / this.countdownTime;
-    this.timer = setInterval(() => {
-      this.runCountdownLogic();
-    }, 1000);
-
-
+  ngAfterViewInit() {
+    this.setTimerData();
   }
 
   passQuestion() {
@@ -63,7 +60,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       }
       this.question = questiondata;
       this.isLoaded = true;
-      clearInterval(this.timer);
+      this.setTimerData();
     });
   }
 
@@ -85,23 +82,27 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
           }
           this.question = questiondata;
           this.isLoaded = true;
-          clearInterval(this.timer);
-          this.countdownTime = 60 * 1;
-          let elm = this.timerElm.nativeElement;
-          elm.style.width = "100%";
-          elm.style.backgroundColor = "rgb(25, 233, 36)";
-          this.setInitialTimer();
+          this.setTimerData();
         });
       }
     });
 
   }
 
-  setInitialTimer() {
+  setTimerData() {
+    if(this.timer) {
+      clearInterval(this.timer);
+    }
+
+    this.countdownTime = 30 * 1;
+    let elm = this.timerElm.nativeElement;
+    elm.style.width = "100%";
+    elm.style.backgroundColor = "rgb(25, 233, 36)";
+
     // Set and check timeout intervals
     this.decriment = 100 / this.countdownTime;
     this.timer = setInterval(() => {
-      this.runCountdownLogic();
+        this.runCountdownLogic();
     }, 1000);
   }
 
