@@ -1,8 +1,22 @@
 <div class="row">
   <div class="col text-center">
     <h2>How to Play</h2>
-    <p>Welcome {{user.nickname}}</p>
-
+    <p>Welcome: {{user.nickname}}</p>
+<ul>
+  <li>Explore the museum while answering questions along the way!</li>
+  <li>Use the image above each question as a clue for where the answr can be found.</li>
+  <li>Select the answer that you feel is correct before time runs out!</li>
+  <li>Click "Send Answer" to submit your answer for that particular question:</li>
+  <ul>
+    <li>If the answer is incorrect and if time allows, you can attempt to answer again. Note: You will be penalized 30 points for every incorrect answer submitted.</li>
+    <br/>
+    <li>If desired, you may skip the question by clicking the "Pass" button. You will forfeit all of your points for this question.</li>
+    <br/>
+    <li>If time runs out, you will receive 0 points and will be moved to the next question.</li>
+  </ul>
+  <li>Scores are tallied throughout the game and are determined by how quickly you were able to correctly answer each question.</li>
+  <li>Your final score will be displayed on the leadership board at the end of the game!</li>
+</ul>
     <button type="submit" class="btn btn-success" (click)="onRegister()">Got it!</button>
   </div>
 </div>
