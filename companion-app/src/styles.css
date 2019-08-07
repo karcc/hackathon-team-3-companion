@@ -14,7 +14,7 @@ button {
 .primaryImage {
     width: 100%;
     height: auto;
-    max-height: 540px;
+    max-height: 400px;
     margin: 0em 0em 1em 0em;
     clear: both;
     color: #ffa600;
@@ -32,6 +32,9 @@ button {
     background-color: rgb(25, 233, 36);
 }
 
+.questionText {
+  font-size: smaller;
+}
 
 .questionChoices {
     margin: 0em 0em 1em 0em;
@@ -54,14 +57,28 @@ button {
 }
 
 .questionChoice {
-  font-size: xx-small;
+  font-size: x-small;
   text-align: center;
+  font-weight: bold;
+  color: white;
   vertical-align: middle;
   display: inline-block;
-  width: 45%;
-  height: 150px;
-  padding: 20px;
-  background-color: gray;
+  width: 85%;
+  padding: 8px 5px;
+  background-color: #06074f;
+  text-shadow: black 1px 1px;
+  margin: 5px;
+}
+
+.leaderboardEntry {
   box-shadow: black;
   margin: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.selected {
+  background-color: lightgreen;
+  color: black;
+  text-shadow: lightgray 1px 1px;
 }

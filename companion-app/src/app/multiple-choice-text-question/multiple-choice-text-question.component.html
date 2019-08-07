@@ -16,7 +16,14 @@
         </div>
       <div *ngIf="question.questionType == 'mc text'">
         <div class="questionChoices">
-            <div *ngFor="let choice of question.choices" class="questionChoice" (click)="selectAnswer(choice)">{{choice}}</div>
+          <div *ngFor="let choice of question.choices" (click)="selectAnswer(choice)">
+            <div *ngIf="selectedAnswer===choice">
+              <div class="questionChoice {{selectedCss}}">{{choice}}</div>
+            </div>
+            <div *ngIf="selectedAnswer!==choice || selectedAnswer == undefined">
+              <div class="questionChoice">{{choice}}</div>
+            </div>
+          </div>
         </div>
       </div>
       <div *ngIf="question.questionType == 'mc image'">

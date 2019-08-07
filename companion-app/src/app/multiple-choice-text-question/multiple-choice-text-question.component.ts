@@ -15,6 +15,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   isLoaded: boolean;
 
   selectedAnswer: string;
+  selectedCss = '.selected';
 
   user: UserInfo;
   question: Questions;
@@ -69,6 +70,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   selectAnswer(choice: string): void {
     console.log('Selected answer: ' + choice);
     this.selectedAnswer = choice;
+
   }
 
   sendAnswer(): void {
