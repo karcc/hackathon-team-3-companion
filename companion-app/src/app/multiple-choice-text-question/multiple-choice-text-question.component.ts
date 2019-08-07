@@ -21,7 +21,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
 
   @ViewChild('timer', undefined) timerElm: ElementRef;
 
-  decriment: number  = 0;
+  decriment: number     = 0;
   warnningTime: number  = 65;
   criticalTime: number  = 30;
   countdownTime: number = 60 * 1;  // 60 for secounds times whatever for minutes...
@@ -40,11 +40,9 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.isLoaded = true;
     });
 
-    this.setInitialTimer();
-
     console.log('question choices: ' + this.question.choices);
 
-
+    this.setInitialTimer();
     // Set and check timeout intervals
     this.decriment = 100 / this.countdownTime;
     this.timer = setInterval(() => {
@@ -75,10 +73,11 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
         });
       }
     });
-  }
 
-  submitQuestion() {
-    console.log('submitting question!');
+    elm = this.timerElm.nativeElement;
+    elm.style.width = "100%";
+    elm.style.backgroundColor = "rgb(25, 233, 36)";
+    this.setInitialTimer();
   }
 
   setInitialTimer() {
@@ -94,19 +93,20 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.countdownTime -= 1;
       const wdth: string = this.timerElm.nativeElement.style.width;
       const timerSize: number =  parseInt(wdth.replace('%', ''), 10) - this.decriment;
+      elm = this.timerElm.nativeElement
 
-      this.timerElm.nativeElement.style.width = timerSize + "%";
+      elm.style.width = timerSize + "%";
 
       if(timerSize <= this.warnningTime &&
          timerSize >= this.criticalTime) {
-          this.timerElm.nativeElement.style.backgroundColor = "#ffa600";
+          elm.style.backgroundColor = "#ffa600";
       } else if(timerSize <= this.warnningTime &&
                 timerSize <= this.criticalTime) {
-                  this.timerElm.nativeElement.style.backgroundColor = "#ff0000";
+                  elm.style.backgroundColor = "#ff0000";
       }
     } else if (this.countdownTime <= 0) {
       clearInterval(this.timer);
-      this.submitQuestion();
+      this.sendAnswer();
     }
   }
 }
