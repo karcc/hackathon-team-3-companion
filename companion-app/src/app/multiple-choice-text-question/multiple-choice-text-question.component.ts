@@ -22,6 +22,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   timer = undefined;
 
   @ViewChild('timer', undefined) timerElm: ElementRef;
+  @ViewChild('clickAudio', undefined) clickAudioElm: ElementRef;
   @ViewChild('correctAudio', undefined) correctAudioElm: ElementRef;
   @ViewChild('wrongAudio', undefined) wrongAudioElm: ElementRef;
 
@@ -69,7 +70,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   selectAnswer(choice: string): void {
     console.log('Selected answer: ' + choice);
     this.selectedAnswer = choice;
-
+    this.clickAudioElm.nativeElement.play();
   }
 
   sendAnswer(): void {
