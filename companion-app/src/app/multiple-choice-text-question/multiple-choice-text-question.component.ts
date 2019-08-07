@@ -74,7 +74,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       }
     });
 
-    elm = this.timerElm.nativeElement;
+    let elm = this.timerElm.nativeElement;
     elm.style.width = "100%";
     elm.style.backgroundColor = "rgb(25, 233, 36)";
     this.setInitialTimer();
@@ -93,7 +93,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       this.countdownTime -= 1;
       const wdth: string = this.timerElm.nativeElement.style.width;
       const timerSize: number =  parseInt(wdth.replace('%', ''), 10) - this.decriment;
-      elm = this.timerElm.nativeElement
+      let elm = this.timerElm.nativeElement
 
       elm.style.width = timerSize + "%";
 
