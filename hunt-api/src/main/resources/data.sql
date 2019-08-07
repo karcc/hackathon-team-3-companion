@@ -56,13 +56,13 @@ INSERT INTO questions_choices (questions_id,choices) VALUES (7, 'WashingtonMonum
 INSERT INTO questions_choices (questions_id, choices) VALUES (7,'LibertyBell.png');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (8,9,1,'mc2 text', 'Database.png','I’m a FREE database of hundreds of thousands of facts and figures that cover about anything. What’s my name?','FRED',60,100);
+VALUES (8,9,1,'mc text', 'Database.png','I’m a FREE database of hundreds of thousands of facts and figures that cover about anything. What’s my name?','FRED',60,100);
 INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'FRED');
 INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'BRAD');
 INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'JOHN');
 INSERT INTO questions_choices (questions_id,choices) VALUES (8, 'MIKE');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (9,10,1,'mc2 text', 'TreasuryChest.png','You will find me on the way out the exit or on the way into the gift shop. Have fun finding me and keep it as a souvenir for visiting the St. Louis Federal Reserve Economy Museum. Did you find me?','YES',60,100);
+VALUES (9,10,1,'mc text', 'TreasuryChest.png','You will find me on the way out the exit or on the way into the gift shop. Have fun finding me and keep it as a souvenir for visiting the St. Louis Federal Reserve Economy Museum. Did you find me?','YES',60,100);
 INSERT INTO questions_choices (questions_id,choices) VALUES (9, 'YES');
 INSERT INTO questions_choices (questions_id,choices) VALUES (9, 'NO');

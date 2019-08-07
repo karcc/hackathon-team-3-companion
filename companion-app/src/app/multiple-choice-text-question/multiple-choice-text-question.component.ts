@@ -70,6 +70,8 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
         this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
           this.question = questiondata;
           this.isLoaded = true;
+          clearInterval(this.timer);
+          this.setInitialTimer();
         });
       }
     });
