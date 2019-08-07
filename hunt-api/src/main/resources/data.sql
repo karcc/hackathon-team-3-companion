@@ -1,17 +1,8 @@
 INSERT INTO user_info (id, group_id, nickname, score, current_question, question_set_id, session_id, question_count, entry_time,correct, question_start_time)
             VALUES (0, 0, 'Jason', 0, 0, 1, 'abcdefg', 1, TO_TIMESTAMP('2019-08-05 12:00:00.000000000', 'YYYY-MM-DD HH24:MI:SS.FF'),false,TO_TIMESTAMP('2019-08-05 12:00:00.000000000', 'YYYY-MM-DD HH24:MI:SS.FF'));
 
-
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-            VALUES (99,99,1,'mc text', 'lincoln.png', 'The exhibit has a large picture of Lincoln on it. What am I?','Penny',60,100);
-
-INSERT INTO questions_choices (questions_id,choices) VALUES (99, 'Folding Money');
-INSERT INTO questions_choices (questions_id,choices) VALUES (99, 'Bond');
-INSERT INTO questions_choices (questions_id,choices) VALUES (99, 'Stock Certificate');
-INSERT INTO questions_choices (questions_id,choices) VALUES (99, 'Penny');
-
-INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (0,1,1,'mc text', 'EconomyMuseum.png','I display what it would take to contain $1,000,000. Which object am I?','Cube.png',60,100);
+VALUES (0,1,1,'mc image', 'EconomyMuseum.png','I display what it would take to contain $1,000,000. Which object am I?','Cube.png',60,100);
 INSERT INTO questions_choices (questions_id,choices) VALUES (0, 'Truck.png');
 INSERT INTO questions_choices (questions_id,choices) VALUES (0, 'Cube.png');
 INSERT INTO questions_choices (questions_id,choices) VALUES (0, 'Storage.png');
@@ -56,7 +47,7 @@ INSERT INTO questions_choices (questions_id,choices) VALUES (6, '$8 trillion');
 INSERT INTO questions_choices (questions_id,choices) VALUES (6, '$150 million');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (7,8,1,'mc text', 'StatueofLiberty.png', 'What object weighs more than the U.S. Gold Reserve?','WashingtonMonument.png',60,100);
+VALUES (7,8,1,'mc image', 'StatueofLiberty.png', 'What object weighs more than the U.S. Gold Reserve?','WashingtonMonument.png',60,100);
 INSERT INTO questions_choices (questions_id,choices) VALUES (7, 'StatueofLiberty.png');
 INSERT INTO questions_choices (questions_id,choices) VALUES (7, 'FireEngine.png');
 INSERT INTO questions_choices (questions_id,choices) VALUES (7, 'Car.png');

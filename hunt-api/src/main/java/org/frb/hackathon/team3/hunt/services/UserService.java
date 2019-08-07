@@ -33,6 +33,6 @@ public class UserService {
         if(userInfo.getScore() > 0){
             highScoreService.saveHighScores(userInfo);
             log.info("this is userinfo in userservice: " + userInfo.getSessionId());
-        }
+         }
     }
 }
