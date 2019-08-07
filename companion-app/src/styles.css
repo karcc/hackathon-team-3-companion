@@ -33,7 +33,7 @@ button {
 }
 
 .questionText {
-  font-size: smaller;
+  font-size: 100%;
 }
 
 .questionChoices {
@@ -65,14 +65,14 @@ button {
 }
 
 .questionChoice {
-  font-size: x-small;
+  font-size: 85%;
   text-align: left;
   font-weight: bold;
   color: white;
   vertical-align: middle;
   display: inline-block;
   width: 85%;
-  padding: 0px 0px;
+  padding: 0.5em;
   background-color: #06074f;
   text-shadow: black 1px 1px;
   margin: 5px;
