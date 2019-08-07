@@ -5,6 +5,7 @@ import org.frb.hackathon.team3.hunt.entities.HighScores;
 import org.frb.hackathon.team3.hunt.entities.UserInfo;
 import org.frb.hackathon.team3.hunt.repositories.HighScoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -25,7 +26,7 @@ public class HighScoreService {
     public HighScores findBySessionId(String sessionId) { return highScoresRepository.findBySessionId(sessionId);}
 
     public List<HighScores> findAll() {
-        return highScoresRepository.findAll();
+        return highScoresRepository.findAll(Sort.by(Sort.Direction.DESC, "score"));
     }
 
     public void saveHighScores(UserInfo userInfo){
