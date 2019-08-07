@@ -1,5 +1,6 @@
 package org.frb.hackathon.team3.hunt.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.frb.hackathon.team3.hunt.entities.HighScores;
 import org.frb.hackathon.team3.hunt.entities.UserInfo;
 import org.frb.hackathon.team3.hunt.repositories.HighScoresRepository;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 public class HighScoreService {
 
@@ -27,7 +29,8 @@ public class HighScoreService {
     }
 
     public void saveHighScores(UserInfo userInfo){
-        if(highScoresRepository.findBySessionId(userInfo.getSessionId()) != null){
+        log.info("Highscore findBySessionId: " + this.highScoresRepository.findBySessionId(userInfo.getSessionId()).getSessionId());
+        if(this.highScoresRepository.findBySessionId(userInfo.getSessionId()) != null){
             HighScores existingHighscore = highScoresRepository.findBySessionId(userInfo.getSessionId());
             existingHighscore.setGroupId(userInfo.getGroupId());
             existingHighscore.setNickname(userInfo.getNickname());
