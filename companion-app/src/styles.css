@@ -7,6 +7,14 @@ body {
     color: #ffffff;
 }
 
+ul, li {
+  text-align: left !important;
+}
+
+li {
+  margin: 0.5em 0em;
+}
+
 button {
     width: 100% !important;
 }
