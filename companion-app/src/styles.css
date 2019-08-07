@@ -47,3 +47,8 @@ button {
 .rightAlign {
   float: right;
 }
+
+.questionImage {
+  display: inline-block;
+  margin: 10px;
+}
