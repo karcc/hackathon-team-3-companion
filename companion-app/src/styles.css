@@ -52,3 +52,16 @@ button {
   display: inline-block;
   margin: 10px;
 }
+
+.questionChoice {
+  font-size: xx-small;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  width: 45%;
+  height: 150px;
+  padding: 20px;
+  background-color: gray;
+  box-shadow: black;
+  margin: 5px;
+}

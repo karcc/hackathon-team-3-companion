@@ -34,7 +34,7 @@ INSERT INTO questions_choices (questions_id,choices) VALUES (4, 'True');
 INSERT INTO questions_choices (questions_id,choices) VALUES (4, 'False');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (5,6,1,'mc text', '100Dollar.png','I portrays the same historical figure as the main portrait. Which hidden feature am I?','Watermark',60,100);
+VALUES (5,6,1,'mc text', '100Dollar.jpg','I portrays the same historical figure as the main portrait. Which hidden feature am I?','Watermark',60,100);
 INSERT INTO questions_choices (questions_id,choices) VALUES (5, 'Color Shifting Inks');
 INSERT INTO questions_choices (questions_id,choices) VALUES (5, 'Fine-Line Printing');
 INSERT INTO questions_choices (questions_id,choices) VALUES (5, 'Watermark');

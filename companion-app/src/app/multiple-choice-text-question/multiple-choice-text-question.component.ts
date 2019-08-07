@@ -3,6 +3,7 @@ import {UserInfo} from "../entities/UserInfo";
 import {Questions} from "../entities/Questions";
 import {UserInfoService} from "../services/user-info-service";
 import {QuestionService} from "../services/question-service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-multiple-choice-text-question',
@@ -27,7 +28,8 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   countdownTime: number = 60 * 1;  // 60 for secounds times whatever for minutes...
 
   constructor(private userService: UserInfoService,
-              private questionService: QuestionService) {
+              private questionService: QuestionService,
+              private router: Router) {
     this.user = history.state.data.user;
   }
 
@@ -55,6 +57,9 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   passQuestion() {
     console.log('passing question!');
     this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
+      if (questiondata == null) {
+        this.router.navigate(['/leaderboard'], {state: {data: {user: this.user}}});
+      }
       this.question = questiondata;
       this.isLoaded = true;
       clearInterval(this.timer);
@@ -73,6 +78,9 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
       if(this.user.correct == true) {
         console.log('Question answered correctly!');
         this.questionService.getQuestion(this.user.sessionId).subscribe( questiondata => {
+          if (questiondata == null) {
+            this.router.navigate(['/leaderboard'], {state: {data: {user: this.user}}});
+          }
           this.question = questiondata;
           this.isLoaded = true;
           clearInterval(this.timer);

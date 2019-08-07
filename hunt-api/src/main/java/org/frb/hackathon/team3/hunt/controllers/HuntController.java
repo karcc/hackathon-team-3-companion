@@ -65,13 +65,14 @@ public class HuntController {
         int newQuestionId = player.getCurrentQuestionId() + 1;
 
         Questions newQuestion = questionService.findByLocationIdAndQuestionSetId(newQuestionId, player.getQuestionSetId());
-        player.setCurrentQuestionId(newQuestion.getLocationId());
-        player.setQuestionStartTime(LocalDateTime.now());
-        player.setQuestionCount(player.getQuestionCount()+1);
-        player.setQuestionSetId(newQuestion.getQuestionSetId());
-        player.setCorrect(false);
-        userService.saveUser(player);
-
+        if (newQuestion != null) {
+            player.setCurrentQuestionId(newQuestion.getLocationId());
+            player.setQuestionStartTime(LocalDateTime.now());
+            player.setQuestionCount(player.getQuestionCount() + 1);
+            player.setQuestionSetId(newQuestion.getQuestionSetId());
+            player.setCorrect(false);
+            userService.saveUser(player);
+        }
         return new ResponseEntity<>(newQuestion, HttpStatus.OK);
     }
 
