@@ -1,8 +1,27 @@
 <div class="row">
     <div class="col text-center clearBoth">
         <h2><u>Leaderboards</u></h2>
-        <div *ngFor="let score of highscores" class="leaderboardEntry">
-            {{score.nickname}} - {{score.score}}
+          <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
+            </ng-container>
+
+            <!-- Score Column -->
+            <ng-container matColumnDef="score">
+              <th mat-header-cell *matHeaderCellDef> Score </th>
+              <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
         </div>
-    </div>
 </div>

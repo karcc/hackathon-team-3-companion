@@ -12,6 +12,7 @@ import {LoginService} from "./login/services/login.service";
 import {QuestionService} from "./services/question-service";
 import {UserInfoService} from "./services/user-info-service";
 import {LeaderboardService} from "./leaderboard/services/leaderboard.service";
+import {MatTableModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {LeaderboardService} from "./leaderboard/services/leaderboard.service";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [
     LoginService,
