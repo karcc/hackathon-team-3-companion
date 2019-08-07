@@ -18,15 +18,16 @@
         <div class="questionChoices">
             <div *ngFor="let choice of question.choices" class="questionChoice" (click)="selectAnswer(choice)">{{choice}}</div>
         </div>
-        <div class="questionFooter">
-          <button type="button" class="btn btn-danger leftAlign" style="width:50% !important;" (click)="passQuestion()">PASS</button>
-          <button type="button" class="btn btn-success rightAlign" style="width:50% !important;" name="Send Answer" (click)="sendAnswer()">Send Answer</button>
-        </div>
       </div>
       <div *ngIf="question.questionType == 'mc image'">
         <div class="questionImages">
-          <div *ngFor="let choice of question.choices" (click)="selectAnswer(choice)"><img src="/companion-app/assets/images/{{choice}}" class="questionImage" width="240" height="160" alt="{{choice}}" /></div>
+          <div *ngFor="let choice of question.choices" (click)="selectAnswer(choice)"><img src="/companion-app/assets/images/{{choice}}" class="questionImage" width="40%" alt="{{choice}}" /></div>
         </div>
+      </div>
+
+      <div class="questionFooter">
+        <button type="button" class="btn btn-danger leftAlign" style="width:50% !important;" (click)="passQuestion()">PASS</button>
+        <button type="button" class="btn btn-success rightAlign" style="width:50% !important;" name="Send Answer" (click)="sendAnswer()">Send Answer</button>
       </div>
     </div>
 </div>
