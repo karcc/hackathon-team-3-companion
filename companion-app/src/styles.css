@@ -102,3 +102,17 @@ button {
 table {
   width: 50%;
 }
+
+.wrong {
+  background-color: lightpink;
+  color: black;
+  text-shadow: lightgray 1px 1px;
+}
+
+.selectedImage {
+  border:3px solid lawngreen;
+}
+
+.wrongImage {
+  border:3px solid lightpink;
+}

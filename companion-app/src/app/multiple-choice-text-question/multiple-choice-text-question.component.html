@@ -17,10 +17,13 @@
       <div *ngIf="question.questionType == 'mc text'">
         <div class="questionChoices">
           <div *ngFor="let choice of question.choices" (click)="selectAnswer(choice)">
+            <div *ngIf="wrongAnswer==choice">
+              <div class="questionChoice wrong">{{choice}}</div>
+            </div>
             <div *ngIf="selectedAnswer===choice">
               <div class="questionChoice {{selectedCss}}">{{choice}}</div>
             </div>
-            <div *ngIf="selectedAnswer!==choice || selectedAnswer == undefined">
+            <div *ngIf="wrongAnswer !== choice && selectedAnswer!==choice">
               <div class="questionChoice">{{choice}}</div>
             </div>
           </div>
@@ -28,10 +31,21 @@
       </div>
       <div *ngIf="question.questionType == 'mc image'">
         <div class="questionImages">
-          <div *ngFor="let choice of question.choices" (click)="selectAnswer(choice)"><img src="/companion-app/assets/images/{{choice}}" class="questionImage" width="40%" alt="{{choice}}" /></div>
+          <div *ngFor="let choice of question.choices" (click)="selectAnswer(choice)">
+            <div *ngIf="wrongAnswer==choice">
+              <div class="wrongImage">
+                <img src="/companion-app/assets/images/{{choice}}" class="questionImage" width="40%" alt="{{choice}}" /></div>
+            </div>
+            <div *ngIf="selectedAnswer===choice">
+              <div class="selectedImage">
+                <img src="/companion-app/assets/images/{{choice}}" class="questionImage" width="40%" alt="{{choice}}" /></div>
+            </div>
+            <div *ngIf="wrongAnswer !== choice && selectedAnswer!==choice">
+              <img src="/companion-app/assets/images/{{choice}}" class="questionImage" width="40%" alt="{{choice}}" />
+            </div>
+          </div>
         </div>
       </div>
-
       <div class="questionFooter">
         <button type="button" class="btn btn-danger leftAlign" style="width:15% !important; text-align: center;" (click)="passQuestion()">pass</button>
         <button type="button" class="btn btn-success rightAlign" style="width:85% !important;" name="Send Answer" (click)="sendAnswer()">Send Answer</button>
