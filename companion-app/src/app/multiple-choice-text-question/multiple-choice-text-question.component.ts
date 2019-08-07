@@ -15,7 +15,7 @@ export class MultipleChoiceTextQuestionComponent implements OnInit {
   isLoaded: boolean;
 
   selectedAnswer: string;
-  selectedCss = '.selected';
+  selectedCss = 'selected';
 
   user: UserInfo;
   question: Questions;
