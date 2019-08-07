@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserInfo} from "../entities/UserInfo";
 import {HighScores} from "../entities/HighScores";
 import {LeaderboardService} from "./services/leaderboard.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-leaderboard',
@@ -15,7 +16,8 @@ export class LeaderboardComponent implements OnInit {
   datasource: any;
   interval: any;
 
-  constructor(private leaderboardService: LeaderboardService) { }
+  constructor(private leaderboardService: LeaderboardService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getLeaderboardServiceData();
@@ -37,4 +39,7 @@ export class LeaderboardComponent implements OnInit {
     });
   }
 
+  onPlayAgain(){
+    this.router.navigate(['/login']);
+  }
 }

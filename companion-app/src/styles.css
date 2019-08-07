@@ -52,6 +52,7 @@ button {
 .leaderboardTable {
   margin: 0 auto;
   font-size: 135%;
+  border: 10;
   text-align: center;
 }
 
@@ -100,7 +101,7 @@ button {
 }
 
 table {
-  width: 50%;
+  width: 90%;
 }
 
 .wrong {

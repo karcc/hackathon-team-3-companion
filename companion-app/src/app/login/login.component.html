@@ -4,7 +4,7 @@
 
       <form>
         <div class="form-group">
-          <input #nickname type="text" class="form-control" id="name" required placeholder="Enter Your Nickname..."/>
+          <input #nickname type="text" maxlength="15" form-control id="name" required placeholder="Enter Your Nickname..."/>
         </div>
 
         <button type="button" class="btn btn-success" (click)="onRegister(nickname.value)">Let's Play!</button>
