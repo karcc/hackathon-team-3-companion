@@ -26,7 +26,7 @@ INSERT INTO questions_choices (questions_id,choices) VALUES (3, 'Stock Certifica
 INSERT INTO questions_choices (questions_id,choices) VALUES (3, 'Penny');
 
 INSERT INTO questions (id,location_id,question_set_id,question_type,question_image,question_text,answer,seconds,points)
-VALUES (4,5,1,'mc text', 'Gold.png','Is U.S. Money backed by Gold?','False',60,100);
+VALUES (4,5,1,'mc text', 'Gold.png','U.S. Money is backed by gold.','False',60,100);
 INSERT INTO questions_choices (questions_id,choices) VALUES (4, 'True');
 INSERT INTO questions_choices (questions_id,choices) VALUES (4, 'False');
 

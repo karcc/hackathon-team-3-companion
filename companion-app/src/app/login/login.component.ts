@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.user = new UserInfo();
     this.loginService.postUserInfo(userNickname, this.user).subscribe((res) => {
       this.user = res;
-      console.log("loggin second: " + this.user.sessionId);
+      console.log("login second: " + this.user.sessionId);
       this.instructionsNavigation();
     });
   }

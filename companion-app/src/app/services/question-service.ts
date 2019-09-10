@@ -10,11 +10,11 @@ export class QuestionService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getQuestion(sessionKey: string) : Observable<Questions> {
+  public getQuestion(sessionKey: string): Observable<Questions> {
     return this.httpClient.get<Questions>(API_URL + 'question/' + sessionKey);
   }
 
-  public sendAnswer(sessionKey: string, choice: string) : Observable<UserInfo> {
+  public sendAnswer(sessionKey: string, choice: string): Observable<UserInfo> {
     return this.httpClient.get<UserInfo>(API_URL + 'answer/' + sessionKey + '/' + choice);
   }
 

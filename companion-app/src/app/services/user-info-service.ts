@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {UserInfo} from "../entities/UserInfo";
 import {Observable} from "rxjs";
 
-export const API_URL = 'http://ec2-34-205-166-79.compute-1.amazonaws.com:3389/hunt/';
+export const API_URL = 'http://ec2-34-200-238-159.compute-1.amazonaws.com:3389';
 
 @Injectable()
 export class UserInfoService {
