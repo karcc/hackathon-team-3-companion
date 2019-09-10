@@ -7,7 +7,7 @@ import {API_URL} from "../../services/user-info-service";
 @Injectable()
 export class LoginService {
 
-  transactionUrl = 'http://localhost:8080/hunt/newgame';
+  transactionUrl = 'http://ec2-34-200-238-159.compute-1.amazonaws.com:3389/hunt/newgame';
 
   constructor(private http: HttpClient) {}
 
